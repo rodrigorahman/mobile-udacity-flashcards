@@ -1,50 +1,107 @@
 import React from "react";
-import { Animated, Text, View, Image, StyleSheet } from "react-native";
+import {ScrollView, StyleSheet, Text, Platform, StatusBar} from "react-native";
+import { TabNavigator } from 'react-navigation';
+import HomeDecks from './home-decks.page';
+import NewDecks from './new-decks.page';
+
+const Tabs = TabNavigator({
+  Decks: {
+    screen: HomeDecks,
+  },
+  NewDeck: {
+    screen: NewDecks
+  },
+}, {
+  tabBarOptions: {
+    activeTintColor: '#02b3e4',
+    inactiveTintColor: '#02b3e4',
+    labelStyle: {
+      fontSize: 12,
+    },
+    style: {
+      backgroundColor: '#fff',
+    },
+    indicatorStyle: {
+      backgroundColor: '#02b3e4',
+    },
+    headerStyle: {
+
+    }
+  }
+});
 
 class HomePage extends React.Component {
+
   static navigationOptions = {
-    title: 'Welcome',
-    headerLeft: null
+    title: 'Decks',
+    headerLeft: null,
   };
 
-  state = {
-    fadeAnim: new Animated.Value(0)
-  }
+  state = {}
 
   componentDidMount() {
-    Animated.timing(this.state.fadeAnim, {
-      toValue: 1,
-      duration: 5000
-    }).start();
+
   }
-  
+
   render() {
-    let { fadeAnim } = this.state;
     return (
-      <Animated.View
-        style={[styles.contentLogo,
-        {opacity: fadeAnim}]}>
-        <Image
-          style={styles.logotipo}
-          source={require('@images/udacity-logo.png')} />
-        <Text style={styles.textLogotipo}>Mobile FlashCards - HOME</Text>
-      </Animated.View>
+      <Tabs/>
+      // <ScrollView>
+      //   <Card
+      //     title='HELLO WORLD'
+      //     image={require('@images/128.jpg')}>
+      //     <Text style={{marginBottom: 10}}>
+      //       The idea with React Native Elements is more about component structure than actual design.
+      //     </Text>
+      //     <Button
+      //       icon={{name: 'code'}}
+      //       backgroundColor='#03A9F4'
+      //       buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+      //       title='VIEW NOW'/>
+      //   </Card>
+      //   <Card
+      //     title='HELLO WORLD'
+      //     image={require('@images/128.jpg')}>
+      //     <Text style={{marginBottom: 10}}>
+      //       The idea with React Native Elements is more about component structure than actual design.
+      //     </Text>
+      //     <Button
+      //       icon={{name: 'code'}}
+      //       backgroundColor='#03A9F4'
+      //       buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+      //       title='VIEW NOW'/>
+      //   </Card>
+      //   <Card
+      //     title='HELLO WORLD'
+      //     image={require('@images/128.jpg')}>
+      //     <Text style={{marginBottom: 10}}>
+      //       The idea with React Native Elements is more about component structure than actual design.
+      //     </Text>
+      //     <Button
+      //       icon={{name: 'code'}}
+      //       backgroundColor='#03A9F4'
+      //       buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+      //       title='VIEW NOW'/>
+      //   </Card>
+      //
+      // </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  contentLogo: {
+  content: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
-  },
-  logotipo: {
+    alignItems: 'center',
+    backgroundColor: '#fff',
     width: 150,
     height: 150
   },
-  textLogotipo: {
+  card: {},
+
+  text: {
     fontSize: 30,
     fontWeight: 'bold'
   }

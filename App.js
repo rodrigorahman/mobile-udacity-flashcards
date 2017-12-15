@@ -1,30 +1,31 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {Platform, StatusBar, StyleSheet, Text, View} from 'react-native';
 import SplashComponent from './app/pages/splash.page';
 import HomePage from './app/pages/home.page';
-import { StackNavigator } from 'react-navigation';
+import {StackNavigator} from 'react-navigation';
 
 const Navigation = StackNavigator({
-  Home: {screen: SplashComponent, header: {visible: false}},
-  HomeApplication: {screen: HomePage, header: {visible: false}}
+    Home: {
+      screen: SplashComponent,
+      header: {visible: false}},
+    HomeApplication: {screen: HomePage, header: {visible: false}}
+  }, {
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: '#FFF',
+        paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
+      }
+    }
   }
-)
+);
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container} >
-        <Navigation/>
-      </View>
-    );
-  }
+const App = () => {
+  return (
+    <Navigation/>
+  );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const styles = StyleSheet.create({});
+
+
+export default App;
