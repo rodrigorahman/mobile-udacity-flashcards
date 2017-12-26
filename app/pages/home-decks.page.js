@@ -19,16 +19,24 @@ class HomeDecks extends React.Component {
 
   }
 
+  goDetail = () => {
+    const { navigate } = this.props.navigation;
+    navigate('Detail', {})
+    console.log('clicado')
+  }
+
+
   render() {
     return (
       <ScrollView>
         <Card
-          title='HELLO WORLD'
+          title='Tem detalhe'
           image={require('@images/128.jpg')}>
           <Text style={{marginBottom: 10}}>
             The idea with React Native Elements is more about component structure than actual design.
           </Text>
           <Button
+            onPress={this.goDetail}
             icon={{name: 'code'}}
             backgroundColor='#03A9F4'
             buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}

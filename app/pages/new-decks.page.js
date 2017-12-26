@@ -10,6 +10,8 @@ class NewDecks extends React.Component {
     tabBarIcon: ({ tintColor }) => (
       <Icon name='file-o' style={{color: tintColor}}/>
     ),
+
+
   };
 
 
@@ -22,30 +24,6 @@ class NewDecks extends React.Component {
   render() {
     return (
       <ScrollView>
-        <Card
-          title='HELLO WORLD'
-          image={require('@images/128.jpg')}>
-          <Text style={{marginBottom: 10}}>
-            The idea with React Native Elements is more about component structure than actual design.
-          </Text>
-          <Button
-            icon={{name: 'code'}}
-            backgroundColor='#03A9F4'
-            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-            title='VIEW NOW'/>
-        </Card>
-        <Card
-          title='HELLO WORLD'
-          image={require('@images/128.jpg')}>
-          <Text style={{marginBottom: 10}}>
-            The idea with React Native Elements is more about component structure than actual design.
-          </Text>
-          <Button
-            icon={{name: 'code'}}
-            backgroundColor='#03A9F4'
-            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-            title='VIEW NOW'/>
-        </Card>
         <Card
           title='HELLO WORLD'
           image={require('@images/128.jpg')}>

@@ -1,7 +1,6 @@
 import React from "react";
 import { Animated, Text, View, Image, StyleSheet } from "react-native";
-
-
+import {NavigationActions} from "react-navigation";
 
 class SplashComponent extends React.Component {
   
@@ -10,17 +9,20 @@ class SplashComponent extends React.Component {
   }
 
   componentDidMount() {
-    const {navigate} = this.props.navigation;
-    
-    Animated.timing(this.state.fadeAnim, {
+        Animated.timing(this.state.fadeAnim, {
       toValue: 1,
       duration: 2000
     }).start(this.onComplete);
   }
 
   onComplete = () => {
-    let { navigate } = this.props.navigation;
-    navigate('HomeApplication', {});
+    let { dispatch } = this.props.navigation;
+    dispatch(NavigationActions.reset({
+      index: 0,
+      actions: [
+        NavigationActions.navigate({ routeName: 'HomeApplication' })
+      ]
+    }))
   }
 
   render() {

@@ -1,28 +1,32 @@
 import React from 'react';
-import {Platform, StatusBar, StyleSheet, Text, View} from 'react-native';
+import {Platform, StatusBar, StyleSheet} from 'react-native';
 import SplashComponent from './app/pages/splash.page';
 import HomePage from './app/pages/home.page';
+import DeckDetailPage from './app/pages/deck-detail.page';
 import {StackNavigator} from 'react-navigation';
+
 
 const Navigation = StackNavigator({
     Home: {
       screen: SplashComponent,
-      header: {visible: false}},
-    HomeApplication: {screen: HomePage, header: {visible: false}}
+      header: { visible: false }
+    },
+    HomeApplication: { screen: HomePage, header: {visible: false}},
   }, {
     navigationOptions: {
-      headerStyle: {
-        backgroundColor: '#FFF',
-        paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight
-      }
+      header: null
     }
   }
 );
 
-const App = () => {
-  return (
-    <Navigation/>
-  );
+class App extends React.Component {
+
+  render() {
+    return (
+      <Navigation/>
+    );
+  }
+
 }
 
 const styles = StyleSheet.create({});
