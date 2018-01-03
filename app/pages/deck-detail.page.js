@@ -1,5 +1,7 @@
 import React from "react";
-import { Animated, Text, View, Image, StyleSheet } from "react-native";
+import {  Text, View, StyleSheet } from "react-native";
+import { Button } from 'react-native-elements';
+
 
 class DeckDetailPage extends React.Component {
 
@@ -15,8 +17,26 @@ class DeckDetailPage extends React.Component {
 
   render() {
     return (
-      <View>
-        <Text> Detail </Text>
+      <View style={styles.content}>
+        <View style={{flex: 2, justifyContent: 'center',}}>
+          <Text style={styles.deckTitle}> Nome do deck </Text>
+          <Text style={styles.totalCads}> 0 cards </Text>
+        </View>
+        <View>
+          <Button
+            raised
+            icon={{name: 'note-add', color:'#000', type:'Entypo'}}
+            containerViewStyle={styles.containerViewButton}
+            buttonStyle={styles.addCardButton}
+            textStyle={{color: '#000'}}
+            title='Add Card' />
+
+          <Button
+            containerViewStyle={styles.containerViewButton}
+            icon={{name: 'question-answer'}}
+            title='Start Quiz'
+            buttonStyle={styles.quizButton}/>
+          </View>
       </View>
     );
   }
@@ -27,17 +47,33 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#fff',
-    width: 150,
-    height: 150
+
   },
   card: {},
 
-  text: {
+  deckTitle: {
+    fontSize: 50,
+    fontWeight: 'bold',
+    textAlign:'center'
+  },
+  totalCads: {
     fontSize: 30,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: '#C0C0C0',
+    textAlign:'center'
+  },
+  containerViewButton: {
+    marginBottom: 10
+  },
+  addCardButton: {
+    backgroundColor: '#fff'
+  },
+  quizButton: {
+    backgroundColor: '#2B97F0'
   }
+
+
 });
 
 export default DeckDetailPage;
