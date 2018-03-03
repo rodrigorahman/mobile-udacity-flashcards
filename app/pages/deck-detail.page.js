@@ -15,6 +15,16 @@ class DeckDetailPage extends React.Component {
 
   }
 
+  answerQuiz = () =>  {
+    const { navigate } = this.props.navigation;
+    navigate('AnswerQuiz', {})
+  }
+
+  openAddCard = () => {
+    const { navigate } = this.props.navigation;
+    navigate('AddCardInDeck', {});
+  }
+
   render() {
     return (
       <View style={styles.content}>
@@ -29,13 +39,15 @@ class DeckDetailPage extends React.Component {
             containerViewStyle={styles.containerViewButton}
             buttonStyle={styles.addCardButton}
             textStyle={{color: '#000'}}
-            title='Add Card' />
+            title='Add Card'
+            onPress={this.openAddCard} />
 
           <Button
             containerViewStyle={styles.containerViewButton}
             icon={{name: 'question-answer'}}
             title='Start Quiz'
-            buttonStyle={styles.quizButton}/>
+            buttonStyle={styles.quizButton}
+            onPress={this.answerQuiz}/>
           </View>
       </View>
     );

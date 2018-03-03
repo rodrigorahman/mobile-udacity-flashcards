@@ -4,9 +4,8 @@ import {StackNavigator, TabNavigator} from 'react-navigation';
 import HomeDecks from './home-decks.page';
 import NewDecks from './new-decks.page';
 import DeckDetailPage from "./deck-detail.page";
-
-
-
+import AnswerQuizPage from './answerQuiz.page';
+import AddCardInDeck from './addCardInDeck.page';
 
 const Tabs = TabNavigator({
   Decks: {
@@ -47,6 +46,12 @@ const ScreenNavigator = StackNavigator({
   },
   Detail: {
     screen: DeckDetailPage,
+  },
+  AnswerQuiz: {
+    screen: AnswerQuizPage
+  },
+  AddCardInDeck: {
+    screen: AddCardInDeck
   }
 }, {
   navigationOptions: {
@@ -77,45 +82,6 @@ class HomePage extends React.Component {
   render() {
     return (
       <ScreenNavigator/>
-      // <ScrollView>
-      //   <Card
-      //     title='HELLO WORLD'
-      //     image={require('@images/128.jpg')}>
-      //     <Text style={{marginBottom: 10}}>
-      //       The idea with React Native Elements is more about component structure than actual design.
-      //     </Text>
-      //     <Button
-      //       icon={{name: 'code'}}
-      //       backgroundColor='#03A9F4'
-      //       buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-      //       title='VIEW NOW'/>
-      //   </Card>
-      //   <Card
-      //     title='HELLO WORLD'
-      //     image={require('@images/128.jpg')}>
-      //     <Text style={{marginBottom: 10}}>
-      //       The idea with React Native Elements is more about component structure than actual design.
-      //     </Text>
-      //     <Button
-      //       icon={{name: 'code'}}
-      //       backgroundColor='#03A9F4'
-      //       buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-      //       title='VIEW NOW'/>
-      //   </Card>
-      //   <Card
-      //     title='HELLO WORLD'
-      //     image={require('@images/128.jpg')}>
-      //     <Text style={{marginBottom: 10}}>
-      //       The idea with React Native Elements is more about component structure than actual design.
-      //     </Text>
-      //     <Button
-      //       icon={{name: 'code'}}
-      //       backgroundColor='#03A9F4'
-      //       buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-      //       title='VIEW NOW'/>
-      //   </Card>
-      //
-      // </ScrollView>
     );
   }
 }
